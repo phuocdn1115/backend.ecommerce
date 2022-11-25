@@ -31,8 +31,8 @@ public class CartController {
 	}
 	
 	@GetMapping("/update")
-	public ResponseEntity<Cart> updateCart(){
-		return new ResponseEntity<Cart>(cartService.updateCart(),HttpStatus.OK);
+	public ResponseEntity<Cart> updateCart(Cart cart){
+		return new ResponseEntity<Cart>(cartService.updateCart(cart),HttpStatus.OK);
 	}
 
 }

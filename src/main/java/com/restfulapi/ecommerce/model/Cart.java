@@ -1,5 +1,6 @@
 package com.restfulapi.ecommerce.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -21,7 +23,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name ="tblcart")
-public class Cart {
+public class Cart implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -42,18 +49,15 @@ public class Cart {
 	@OneToMany(mappedBy = "cart")
 	private List<CartItem> cartItems;
 	
-	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="customer", nullable = false)
+	@JoinColumn(name="customer", nullable = false, referencedColumnName = "id")
 	private Customer customer;
-	
-	@JsonIgnore
+
 	@OneToOne(mappedBy = "cart")
 	private Order order;
 
 	public Cart() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cart(int amount, Long totalPrice, Long createdTime) {
@@ -119,14 +123,5 @@ public class Cart {
 	public void setIsOrder(String isOrder) {
 		this.isOrder = isOrder;
 	}
-	
-	
-	
-	
-//	@OneToOne(mappedBy = "cart")
-//	private Order order;
-	
-	
-	
 
 }

@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 
 import lombok.Data;
@@ -15,7 +18,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="tblbill")
-public class Order {
+public class Order implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -39,7 +47,7 @@ public class Order {
 	private String code;
 	
 	@Column(name="finalprice")
-	private int finalprice;
+	private long finalprice;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(referencedColumnName = "id", name = "cart")
@@ -47,8 +55,22 @@ public class Order {
 
 	public Order() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
+	public Order(int totalamount, int totalprice, long createdtime, String payment, String status, String code,
+			long finalprice, Cart cart) {
+		super();
+		this.totalamount = totalamount;
+		this.totalprice = totalprice;
+		this.createdtime = createdtime;
+		this.payment = payment;
+		this.status = status;
+		this.code = code;
+		this.finalprice = finalprice;
+		this.cart = cart;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -106,11 +128,11 @@ public class Order {
 		this.code = code;
 	}
 
-	public int getFinalprice() {
+	public long getFinalprice() {
 		return finalprice;
 	}
 
-	public void setFinalprice(int finalprice) {
+	public void setFinalprice(long finalprice) {
 		this.finalprice = finalprice;
 	}
 

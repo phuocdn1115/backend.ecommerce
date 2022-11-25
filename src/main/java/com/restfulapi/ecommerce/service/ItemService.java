@@ -12,5 +12,7 @@ public interface ItemService {
 	List<Item> getAllItem();
 	
 	List<Item> getAllItemByCategory(Category category);
+	
+	List<Item> searchItemByKey(String key);
 
 }

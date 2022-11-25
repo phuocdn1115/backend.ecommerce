@@ -1,5 +1,7 @@
 package com.restfulapi.ecommerce.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name ="tblcartitem")
-public class CartItem {
+public class CartItem implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -27,7 +34,6 @@ public class CartItem {
 	@Column(name="createdtime")
 	private Long createdTime;
 	
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="cart",nullable =  false)
 	private Cart cart;

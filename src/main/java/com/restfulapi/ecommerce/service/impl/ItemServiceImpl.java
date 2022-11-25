@@ -32,5 +32,10 @@ public class ItemServiceImpl implements ItemService{
 		return itemRepository.getItemByCategory(category);
 	}
 
+	@Override
+	public List<Item> searchItemByKey(String key) {
+		return itemRepository.searchItemByKey(key);
+	}
+
 
 }

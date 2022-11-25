@@ -37,10 +37,8 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Cart updateCart() {
-		Cart cart = cartRepository.getReferenceById(1);
-		cart.setAmount(100);
-		cart.setTotalPrice(10000000l);
+	public Cart updateCart(Cart cart) {
+		//Cart cart = cartRepository.getReferenceById(1);
 		return cartRepository.save(cart);
 	}
 

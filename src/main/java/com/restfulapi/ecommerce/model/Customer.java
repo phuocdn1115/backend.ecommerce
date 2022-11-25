@@ -16,13 +16,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "tblcustomer")
-public class Customer{
+public class Customer implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -39,24 +45,31 @@ public class Customer{
 	@Column(name = "gender")
 	private String gender;
 	
+	@Column(name ="password")
+	private String password;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="address", referencedColumnName = "id")
 	private Address address;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "customer")
 	private List<Cart> carts;
+	
+	
 	
 	public Customer() {
 		super();
 	}
 
-	public Customer(String name, String email, String tel, String gender, Address address) {
+	public Customer(String name, String email, String tel, String gender, Address address, String password) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.tel = tel;
 		this.gender = gender;
 		this.address = address;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -104,6 +117,26 @@ public class Customer{
 	}
 
 	public void setAdrress(Address address) {
+		this.address = address;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<Cart> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
+
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	
