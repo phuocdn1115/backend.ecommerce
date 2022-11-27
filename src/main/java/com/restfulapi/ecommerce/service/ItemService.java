@@ -11,7 +11,7 @@ import com.restfulapi.ecommerce.model.Item;
 public interface ItemService {
 	List<Item> getAllItem();
 	
-	List<Item> getAllItemByCategory(Category category);
+	List<Item> getAllItemByCategory(int idCategory);
 	
 	List<Item> searchItemByKey(String key);
 

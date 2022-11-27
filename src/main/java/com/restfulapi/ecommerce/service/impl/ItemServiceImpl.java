@@ -28,8 +28,8 @@ public class ItemServiceImpl implements ItemService{
 	}
 
 	@Override
-	public List<Item> getAllItemByCategory(Category category) {
-		return itemRepository.getItemByCategory(category);
+	public List<Item> getAllItemByCategory(int idCategory) {
+		return itemRepository.getItemByCategory(idCategory);
 	}
 
 	@Override

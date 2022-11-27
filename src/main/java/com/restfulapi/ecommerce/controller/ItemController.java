@@ -36,8 +36,8 @@ public class ItemController {
 	}
 	
 	@GetMapping("/bycategory")
-	public ResponseEntity<List<Item>> getItemByCategory(@RequestBody  Category category){
-		return new ResponseEntity<List<Item>>(itemService.getAllItemByCategory(category),HttpStatus.OK);
+	public ResponseEntity<List<Item>> getItemByCategory(@RequestParam("idCategory")  int idCategory){
+		return new ResponseEntity<List<Item>>(itemService.getAllItemByCategory(idCategory),HttpStatus.OK);
 	}
 	
 	@GetMapping("/searchByKey")

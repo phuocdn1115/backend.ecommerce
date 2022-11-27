@@ -48,13 +48,15 @@ public class Item {
 		super();
 	}
 
-	public Item(String name, Long price, String unit, int quantity, Category category) {
+	public Item(String name, Long price, String unit, int quantity, Category category, String image, String origin) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.unit = unit;
 		this.quantity = quantity;
 		this.category = category;
+		this.image = image;
+		this.origin = origin;
 	}
 
 	public int getId() {
@@ -103,6 +105,22 @@ public class Item {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getOrigin() {
+		return origin;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
 	
 	
