@@ -9,5 +9,5 @@ public interface CustomerService {
 
 	Customer saveCustomer(Customer customer);
 	List<Customer> getAllCustomer();
-	Optional<Customer> checkLogin(String username, String password);
+	Customer checkLogin(String username, String password);
 }

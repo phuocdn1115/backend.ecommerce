@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restfulapi.ecommerce.model.Cart;
+import com.restfulapi.ecommerce.model.CartItem;
 import com.restfulapi.ecommerce.model.Customer;
 import com.restfulapi.ecommerce.service.CartService;
 import com.restfulapi.ecommerce.service.impl.CartServiceImpl;
@@ -34,5 +35,9 @@ public class CartController {
 	public ResponseEntity<Cart> updateCart(Cart cart){
 		return new ResponseEntity<Cart>(cartService.updateCart(cart),HttpStatus.OK);
 	}
-
+	
+	@PostMapping("/addItemToCart")
+	public ResponseEntity<CartItem> addItemToCart(@RequestBody CartItem cartItem){
+		return new ResponseEntity<CartItem>()
+	}
 }

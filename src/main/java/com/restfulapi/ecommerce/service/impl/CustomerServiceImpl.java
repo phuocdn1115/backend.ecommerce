@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.restfulapi.ecommerce.model.Customer;
 import com.restfulapi.ecommerce.repository.CustomerRepository;
 import com.restfulapi.ecommerce.service.CustomerService;
@@ -31,9 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Optional<Customer> checkLogin(String username, String password) {
-		return customerRepository.checkLogin(username, password);
+	public Customer checkLogin(String username, String password) {
+		Customer c = customerRepository.checkLogin(username, password);
+		if(c== null){
+			c = new Customer();
+		}
+		return c;
 	}
-
 
 }

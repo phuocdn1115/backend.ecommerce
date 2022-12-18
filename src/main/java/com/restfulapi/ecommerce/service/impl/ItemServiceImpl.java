@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.restfulapi.ecommerce.model.Category;
 import com.restfulapi.ecommerce.model.Item;
+import com.restfulapi.ecommerce.model.Rating;
 import com.restfulapi.ecommerce.repository.ItemRepository;
 import com.restfulapi.ecommerce.service.ItemService;
 
@@ -35,6 +36,11 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public List<Item> searchItemByKey(String key) {
 		return itemRepository.searchItemByKey(key);
+	}
+
+	@Override
+	public List<Rating> getRatingItem(int idItem) {
+		return itemRepository.getRatingItem(idItem);
 	}
 
 

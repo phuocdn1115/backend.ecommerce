@@ -41,8 +41,8 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/checkLogin")
-	public ResponseEntity<Optional<Customer>> checkLogin(@RequestParam(name ="username") String username, @RequestParam(name ="password") String password){
-		return new ResponseEntity<Optional<Customer>>(customerService.checkLogin(username, password),HttpStatus.OK);
+	public ResponseEntity<Customer> checkLogin(@RequestParam(name ="username") String username, @RequestParam(name ="password") String password){
+		return new ResponseEntity<Customer>(customerService.checkLogin(username, password),HttpStatus.OK);
 	}
 		
-}
+} 

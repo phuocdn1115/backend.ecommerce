@@ -38,7 +38,6 @@ public class CartItem implements Serializable{
 	@JoinColumn(name="cart",nullable =  false)
 	private Cart cart;
 	
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="item", nullable =  false)
 	private Item item;

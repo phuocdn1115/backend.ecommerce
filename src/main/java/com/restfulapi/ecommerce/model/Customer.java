@@ -24,11 +24,6 @@ import lombok.Data;
 @Entity
 @Table(name = "tblcustomer")
 public class Customer implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -48,6 +43,9 @@ public class Customer implements Serializable{
 	@Column(name ="password")
 	private String password;
 	
+	@Column(name ="username")
+	private String username;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="address", referencedColumnName = "id")
 	private Address address;
@@ -62,7 +60,7 @@ public class Customer implements Serializable{
 		super();
 	}
 
-	public Customer(String name, String email, String tel, String gender, Address address, String password) {
+	public Customer(String name, String email, String tel, String gender, Address address, String password, String username) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -70,6 +68,7 @@ public class Customer implements Serializable{
 		this.gender = gender;
 		this.address = address;
 		this.password = password;
+		this.username = username;
 	}
 
 	public int getId() {
@@ -126,6 +125,15 @@ public class Customer implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public List<Cart> getCarts() {

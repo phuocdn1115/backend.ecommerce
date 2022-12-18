@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.restfulapi.ecommerce.model.Cart;
+import com.restfulapi.ecommerce.model.CartItem;
 import com.restfulapi.ecommerce.model.Customer;
 import com.restfulapi.ecommerce.repository.CartRepository;
 import com.restfulapi.ecommerce.service.CartService;
@@ -41,8 +42,5 @@ public class CartServiceImpl implements CartService {
 		//Cart cart = cartRepository.getReferenceById(1);
 		return cartRepository.save(cart);
 	}
-
 	
-	
-
 }

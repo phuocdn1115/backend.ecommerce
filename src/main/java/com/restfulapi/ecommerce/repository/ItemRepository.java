@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.restfulapi.ecommerce.model.Category;
 import com.restfulapi.ecommerce.model.Item;
+import com.restfulapi.ecommerce.model.Rating;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Integer>{
@@ -18,5 +19,8 @@ public interface ItemRepository extends JpaRepository<Item, Integer>{
 	
 	@Query("select i from Item i where i.name like ?1")
 	List<Item> searchItemByKey(String key);
+	
+	@Query("select r from Rating r where r.item.id = ?1")
+	List<Rating> getRatingItem(int idItem);
 
 }

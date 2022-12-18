@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.restfulapi.ecommerce.model.Category;
 import com.restfulapi.ecommerce.model.Item;
+import com.restfulapi.ecommerce.model.Rating;
 import com.restfulapi.ecommerce.service.ItemService;
 
 @RestController
@@ -43,5 +44,10 @@ public class ItemController {
 	@GetMapping("/searchByKey")
 	public ResponseEntity<List<Item>> searchItemByKey(@RequestParam("key") String key){
 		return new ResponseEntity<List<Item>>(itemService.searchItemByKey("%"+key+"%"),HttpStatus.OK);
+	}
+	
+	@GetMapping("/getRating")
+	public ResponseEntity<List<Rating>> getRatingItem(@RequestParam("idItem") int idItem){
+		return new ResponseEntity<List<Rating>>(itemService.getRatingItem(idItem), HttpStatus.OK);
 	}
 }
