@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restfulapi.ecommerce.model.Cart;
@@ -27,17 +28,17 @@ public class CartController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<Cart> createCart(@RequestBody Customer customer){
-		return new ResponseEntity<Cart>(cartService.getCart(customer),HttpStatus.OK);
+	public ResponseEntity<Cart> createCart(@RequestParam int idCustomer){
+		return new ResponseEntity<Cart>(cartService.getCart(idCustomer),HttpStatus.OK);
 	}
 	
-	@GetMapping("/update")
-	public ResponseEntity<Cart> updateCart(Cart cart){
+	@PostMapping("/update")
+	public ResponseEntity<Cart> updateCart(@RequestBody Cart cart){
 		return new ResponseEntity<Cart>(cartService.updateCart(cart),HttpStatus.OK);
 	}
 	
-	@PostMapping("/addItemToCart")
-	public ResponseEntity<CartItem> addItemToCart(@RequestBody CartItem cartItem){
-		return new ResponseEntity<CartItem>()
-	}
+//	@PostMapping("/addItemToCart")
+//	public ResponseEntity<CartItem> addItemToCart(@RequestBody CartItem cartItem){
+//		return new ResponseEntity<CartItem>()
+//	}
 }

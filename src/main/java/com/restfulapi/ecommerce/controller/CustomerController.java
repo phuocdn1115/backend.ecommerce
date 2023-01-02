@@ -32,7 +32,7 @@ public class CustomerController {
 	
 	@PostMapping
 	public ResponseEntity<Customer> saveCustomer(@RequestBody  Customer customer){
-		return new ResponseEntity<Customer>(customerService.saveCustomer(customer), HttpStatus.CREATED)  ;
+		return new ResponseEntity<Customer>(customerService.saveCustomer(customer), HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/getall")

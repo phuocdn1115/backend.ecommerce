@@ -11,7 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -34,6 +36,7 @@ public class CartItem implements Serializable{
 	@Column(name="createdtime")
 	private Long createdTime;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="cart",nullable =  false)
 	private Cart cart;

@@ -8,7 +8,7 @@ import com.restfulapi.ecommerce.model.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer,Integer> {
-	@Query("select c from Customer c where email = ?1 and password =?2")
+	@Query("select c from Customer c where username = ?1 and password =?2")
 	Customer checkLogin(String username, String password);
 
 }

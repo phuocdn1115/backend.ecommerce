@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -52,6 +54,7 @@ public class Customer implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "customer")
+	@Cascade(org.hibernate.annotations.CascadeType.ALL)
 	private List<Cart> carts;
 	
 	
