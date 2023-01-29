@@ -44,5 +44,7 @@ public class CustomerController {
 	public ResponseEntity<Customer> checkLogin(@RequestParam(name ="username") String username, @RequestParam(name ="password") String password){
 		return new ResponseEntity<Customer>(customerService.checkLogin(username, password),HttpStatus.OK);
 	}
+	
+	
 		
 } 

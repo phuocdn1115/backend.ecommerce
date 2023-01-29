@@ -40,6 +40,9 @@ public class Item {
 	@Column(name="origin")
 	private String origin;
 	
+	@Column(name="descriptions")
+	private String descriptions;
+	
 	@ManyToOne
 	@JoinColumn(name = "category", nullable = false)
 	private Category category;
@@ -48,7 +51,7 @@ public class Item {
 		super();
 	}
 
-	public Item(String name, Long price, String unit, int quantity, Category category, String image, String origin) {
+	public Item(String name, Long price, String unit, int quantity, Category category, String image, String origin, String descriptions) {
 		super();
 		this.name = name;
 		this.price = price;
@@ -57,6 +60,7 @@ public class Item {
 		this.category = category;
 		this.image = image;
 		this.origin = origin;
+		this.descriptions = descriptions;
 	}
 
 	public int getId() {
@@ -122,6 +126,13 @@ public class Item {
 	public void setOrigin(String origin) {
 		this.origin = origin;
 	}
-	
+
+	public String getDescriptions() {
+		return descriptions;
+	}
+
+	public void setDescriptions(String descriptions) {
+		this.descriptions = descriptions;
+	}
 	
 }
