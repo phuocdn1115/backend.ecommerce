@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.restfulapi.ecommerce.model.Cart;
 import com.restfulapi.ecommerce.model.CartItem;
 import com.restfulapi.ecommerce.model.Customer;
+import com.restfulapi.ecommerce.service.CartItemService;
 import com.restfulapi.ecommerce.service.CartService;
 import com.restfulapi.ecommerce.service.impl.CartServiceImpl;
 
@@ -22,10 +23,12 @@ import com.restfulapi.ecommerce.service.impl.CartServiceImpl;
 @RequestMapping("/api/cart")
 public class CartController {
 	private CartService cartService;
+	private CartItemService cartItemService;
 
-	public CartController(CartService cartService) {
+	public CartController(CartService cartService, CartItemService cartItemService) {
 		super();
 		this.cartService = cartService;
+		this.cartItemService = cartItemService;
 	}
 	
 	@GetMapping
@@ -38,13 +41,13 @@ public class CartController {
 		return new ResponseEntity<Cart>(cartService.updateCart(cart),HttpStatus.OK);
 	}
 	
-//	@DeleteMapping("/cartItem")
-//	public ResponseEntity<Integer> deleteCartItem(@RequestParam int idCartItem){
-//		return new ResponseEntity<Integer>(cartService.)
-//	}
+	@DeleteMapping("/delete/cartItem")
+	public ResponseEntity<Integer> deleteCartItem(@RequestParam int idCartItem){
+		return new ResponseEntity<Integer>(cartItemService.deleteCartItem(idCartItem), HttpStatus.OK);
+	}
 	
-//	@PostMapping("/addItemToCart")
-//	public ResponseEntity<CartItem> addItemToCart(@RequestBody CartItem cartItem){
-//		return new ResponseEntity<CartItem>()
-//	}
+	@DeleteMapping("delete/cart")
+	public ResponseEntity<Integer> deleteCart(@RequestParam int idCart){
+		return new ResponseEntity<Integer>(cartService.deleteCart(idCart), HttpStatus.OK);
+	}
 }

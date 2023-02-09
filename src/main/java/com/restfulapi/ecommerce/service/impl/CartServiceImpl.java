@@ -54,5 +54,11 @@ public class CartServiceImpl implements CartService {
 		//Cart cart = cartRepository.getReferenceById(1);
 		return cartRepository.save(cart);
 	}
+
+	@Override
+	public Integer deleteCart(int id) {
+		cartRepository.deleteById(id);
+		return id;
+	}
 	
 }

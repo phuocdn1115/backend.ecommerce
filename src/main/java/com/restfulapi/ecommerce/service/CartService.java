@@ -8,5 +8,6 @@ public interface CartService {
 	Cart createCart(Cart cart);
 	Cart getCart(int idCustomer);
 	Cart updateCart(Cart cart);
+	Integer deleteCart(int id);
 
 }
