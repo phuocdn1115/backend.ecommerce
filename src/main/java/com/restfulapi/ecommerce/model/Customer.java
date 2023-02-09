@@ -48,7 +48,7 @@ public class Customer implements Serializable{
 	@Column(name ="username")
 	private String username;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="address", referencedColumnName = "id")
 	private Address address;
 	
