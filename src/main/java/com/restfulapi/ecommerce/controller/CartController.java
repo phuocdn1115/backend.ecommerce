@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +37,11 @@ public class CartController {
 	public ResponseEntity<Cart> updateCart(@RequestBody Cart cart){
 		return new ResponseEntity<Cart>(cartService.updateCart(cart),HttpStatus.OK);
 	}
+	
+//	@DeleteMapping("/cartItem")
+//	public ResponseEntity<Integer> deleteCartItem(@RequestParam int idCartItem){
+//		return new ResponseEntity<Integer>(cartService.)
+//	}
 	
 //	@PostMapping("/addItemToCart")
 //	public ResponseEntity<CartItem> addItemToCart(@RequestBody CartItem cartItem){

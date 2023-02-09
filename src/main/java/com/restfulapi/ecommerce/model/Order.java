@@ -49,7 +49,7 @@ public class Order implements Serializable{
 	@Column(name="finalprice")
 	private long finalprice;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(referencedColumnName = "id", name = "cart")
 	private Cart cart;
 
