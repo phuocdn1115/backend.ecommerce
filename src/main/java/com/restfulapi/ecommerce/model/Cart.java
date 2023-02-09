@@ -68,6 +68,7 @@ public class Cart implements Serializable{
 		this.totalPrice = totalPrice;
 		this.createdTime = createdTime;
 		this.isOrder = "no";
+		this.cartItems = new ArrayList<CartItem>();
 	}
 
 	public int getId() {
